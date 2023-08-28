@@ -66,12 +66,13 @@ const PuzzleBoard: FC<PuzzleBoardProps> = ({ imageUrl, onBackClick }) => {
             />
           ))}
         </ul>
-        {winCondition && gameStarted && (
-          <Confetti numberOfPieces={1000} recycle={false}>
+        {gameStarted && winCondition && (
+          <>
+            <Confetti numberOfPieces={1000} recycle={false} />
             <div className="my-4 text-center">
-              Congratulations! Puzzle solved 🎉
+              🎉 Congratulations! You won 🎉
             </div>
-          </Confetti>
+          </>
         )}
       </div>
       <div className="mt-4 flex flex-col justify-center gap-4">
