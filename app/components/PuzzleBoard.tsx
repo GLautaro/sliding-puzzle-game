@@ -4,6 +4,7 @@ import { BOARD_SIZE, GRID_SIZE, PIECES_COUNT } from "../utils/constants";
 import { scramble, canSwap, swap, isSolved } from "../utils/puzzleHelpers";
 import BoardPiece from "./BoardPiece";
 import { Button } from "@nextui-org/react";
+import Confetti from "react-confetti";
 
 const PuzzleBoard: FC<PuzzleBoardProps> = ({ imageUrl, onBackClick }) => {
   const [pieces, setPieces] = useState(
@@ -66,9 +67,11 @@ const PuzzleBoard: FC<PuzzleBoardProps> = ({ imageUrl, onBackClick }) => {
           ))}
         </ul>
         {winCondition && gameStarted && (
-          <div className="my-4 text-center">
-            Congratulations! Puzzle solved 🎉
-          </div>
+          <Confetti numberOfPieces={1000} recycle={false}>
+            <div className="my-4 text-center">
+              Congratulations! Puzzle solved 🎉
+            </div>
+          </Confetti>
         )}
       </div>
       <div className="mt-4 flex flex-col justify-center gap-4">
