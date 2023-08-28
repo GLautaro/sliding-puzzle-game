@@ -24,7 +24,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
       <header>
-        <h1 className="text-4xl mb-10 text-center text-indigo-100 font-bold">Sliding game</h1>
+        <h1 className="text-4xl mb-10 text-center font-bold">Sliding game</h1>
       </header>
       <div className="z-10 max-w-5xl w-full items-center justify-between lg:flex">
         <Homepage pictures={pictures} />
