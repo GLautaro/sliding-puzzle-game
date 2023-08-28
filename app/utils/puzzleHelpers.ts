@@ -49,14 +49,15 @@ export function getVisualPosition(
 
 // Mezcla aleatoriamente las piezas del rompecabezas hasta que se pueda resolver
 export function scramble(pieces: number[]): number[] {
-  const scrambledPieces: number[] = [...pieces];
-
-  do {
-    scrambledPieces.sort(() => Math.random() - 0.5);
-  } while (!isSolvable(scrambledPieces) || isSolved(scrambledPieces));
-
-  // Devuelve las piezas mezcladas
-  return scrambledPieces;
+  const scrambledPieces: number[] = [
+    ...pieces
+      .filter((t) => t !== pieces.length - 1)
+      .sort(() => Math.random() - 0.5),
+    pieces.length - 1,
+  ];
+  return isSolvable(scrambledPieces) && !isSolved(scrambledPieces)
+    ? scrambledPieces
+    : scramble(scrambledPieces);
 }
 
 // Verifica si dos piezas pueden intercambiarse

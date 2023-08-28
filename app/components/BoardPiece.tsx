@@ -32,7 +32,7 @@ const BoardPiece: FC<BoardPiece> = ({
       style={{
         ...tileStyle,
         transform: `translate3d(${tileStyle.translateX}px, ${tileStyle.translateY}px, 0)`,
-        opacity: tile === PIECES_COUNT - 1 ? 0 : 1,
+        opacity: gameStarted && tile === PIECES_COUNT - 1 ? 0 : 1,
       }}
       className={
         gameStarted
